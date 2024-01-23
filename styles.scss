@@ -6,17 +6,26 @@
 
 /*variables*/
 
-$color-black:#212429;
+$color-black: #212429;
 $font-default: 'montserrat';
-$size-title:32px;
-$size-cards:14px;
-$size-default:16px;
+$size-title: 32px;
+$size-cards: 14px;
+$size-default: 16px;
+$lg-desktop:920px;
+
+/*mixin*/
+@mixin s-mediaq ($mq__max-w){
+    @media (max-width: $lg-desktop) {
+        @content;
+        
+    }
+}
 
 
-.h1 {
-    font-family:$font-default;
+.title {
+    font-family: $font-default;
     text-transform: uppercase;
-    font-size:$size-title;
+    font-size: $size-title;
 }
 
 /*body*/
@@ -34,7 +43,9 @@ body {
     align-items: center;
     position: sticky;
     top: 0;
+    z-index: 1;
     background-color: white;
+    padding: 0px 32px 0px 32px;
 
     & img {
         width: 24px;
@@ -48,20 +59,34 @@ body {
         font-family: 'montserrat';
         text-transform: uppercase;
         list-style: none;
-        & a{
+
+        & a {
             text-decoration: none;
-            color:$color-black;
+            color: $color-black;
+        }
+
+        @include s-mediaq($lg-desktop){
+            display: none;
         }
 
     }
-    &__nav-icons{
+
+    &__nav-icons {
         display: flex;
         gap: 32px;
         color: $color-black;
+
+        @include s-mediaq($lg-desktop){
+            display: none;
+        }
+    }
+
+    @include s-mediaq($lg-desktop){
+        justify-content: center;
     }
 }
 
-.separator{
+.separator {
     margin: 16px 0px 16px 0px;
     border-color: $color-black;
     border-width: 0.5px;
@@ -78,17 +103,29 @@ body {
         column-gap: 64px;
         padding: 16px 64px 16px 64px;
 
+        @include s-mediaq($lg-desktop){
+            grid-template-columns: repeat(1, 1fr);
+            padding: 16px;
+        }
+
     }
 
-    & img {
+    & img{
         width: 100%;
         border-radius: 16px;
+
+        &:hover {
+            -webkit-transform:scale(0.95);
+            transform:scale(0.95);
+            transition:0.5s;
+            cursor: pointer;
+        }
 
     }
 
     & .details {
-        font-family:$font-default;
-        font-size:$size-cards;
+        font-family: $font-default;
+        font-size: $size-cards;
         color: $color-black;
         display: flex;
         flex-direction: row;
@@ -120,6 +157,11 @@ body {
         flex-direction: row;
         align-items: center;
         font-family: 'montserrat';
+        @include s-mediaq($lg-desktop){
+            border-bottom: 1px solid white;
+            padding: 16px 0px 16px 0px;
+            font-weight: bold;
+        }
 
     }
 
@@ -135,4 +177,8 @@ body {
         }
 
     }
+    @include s-mediaq($lg-desktop){
+        flex-direction: column;
+    }
+    
 }
