@@ -1,0 +1,138 @@
+/*fonts*/
+@font-face {
+    font-family: montserrat;
+    src: url(assets/fonts/montserrat/Montserrat-VariableFont_wght.ttf);
+}
+
+/*variables*/
+
+$color-black:#212429;
+$font-default: 'montserrat';
+$size-title:32px;
+$size-cards:14px;
+$size-default:16px;
+
+
+.h1 {
+    font-family:$font-default;
+    text-transform: uppercase;
+    font-size:$size-title;
+}
+
+/*body*/
+
+body {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 32px;
+}
+
+/*header*/
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background-color: white;
+
+    & img {
+        width: 24px;
+
+    }
+
+    &__menu ul {
+        display: flex;
+        flex-direction: row;
+        gap: 32px;
+        font-family: 'montserrat';
+        text-transform: uppercase;
+        list-style: none;
+        & a{
+            text-decoration: none;
+            color:$color-black;
+        }
+
+    }
+    &__nav-icons{
+        display: flex;
+        gap: 32px;
+        color: $color-black;
+    }
+}
+
+.separator{
+    margin: 16px 0px 16px 0px;
+    border-color: $color-black;
+    border-width: 0.5px;
+}
+
+
+/*grid*/
+
+.main-content {
+    &__grid-items {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        row-gap: 32px;
+        column-gap: 64px;
+        padding: 16px 64px 16px 64px;
+
+    }
+
+    & img {
+        width: 100%;
+        border-radius: 16px;
+
+    }
+
+    & .details {
+        font-family:$font-default;
+        font-size:$size-cards;
+        color: $color-black;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 16px;
+
+    }
+
+    & .price {
+        font-weight: bold;
+
+    }
+}
+
+
+
+/*footer*/
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #212429;
+    color: white;
+    padding: 32px;
+
+    &__container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-family: 'montserrat';
+
+    }
+
+    & .icon {
+        background-color: white;
+        padding: 16px;
+        border-radius: 100%;
+        max-width: 32px;
+        margin-right: 16px;
+
+        & img {
+            width: 24px;
+        }
+
+    }
+}
