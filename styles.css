@@ -133,11 +133,12 @@ body {
   background-color: white;
   padding: 16px;
   border-radius: 100%;
-  max-width: 32px;
+  width: 32px;
+  height: 32px;
   margin-right: 16px;
 }
 .footer .icon img {
-  width: 24px;
+  width: 100%;
 }
 @media (max-width: 920px) {
   .footer {

@@ -168,11 +168,12 @@ body {
         background-color: white;
         padding: 16px;
         border-radius: 100%;
-        max-width: 32px;
+        width: 32px;
+        height: 32px;
         margin-right: 16px;
 
         & img {
-            width: 24px;
+            width:100%;
         }
 
     }
